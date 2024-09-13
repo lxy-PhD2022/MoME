@@ -33,7 +33,7 @@ class Exp_Main(Exp_Basic):
             'NLinear': NLinear,
             'Linear': Linear,
             'PatchTST': PatchTST,
-            'MoME': MoME,
+            'new1TST': MoME,
         }
         model = model_dict[self.args.model].Model(self.args).float()
 
