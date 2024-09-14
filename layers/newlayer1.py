@@ -59,7 +59,7 @@ class PatchTST_backbone(nn.Module):
         if self.revin: 
             z = z.permute(0,2,1)
             z = self.revin_layer(z, 'norm') 
-            # z, _ = self.DishTS(z, 'forward', None)  
+            z, _ = self.DishTS(z, 'forward', None)  # close when running Traffic
             z = z.permute(0,2,1)
             
         b, c, l = z.shape
@@ -82,7 +82,7 @@ class PatchTST_backbone(nn.Module):
         # denorm
         if self.revin: 
             z = z.permute(0,2,1)
-            # z = self.DishTS(z, 'inverse', None)
+            z = self.DishTS(z, 'inverse', None)   # close when running Traffic
             z = self.revin_layer(z, 'denorm')
             z = z.permute(0,2,1)
         return z
